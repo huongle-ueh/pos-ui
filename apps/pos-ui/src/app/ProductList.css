@@ -1,0 +1,43 @@
+/* ProductList.css */
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+    cursor: pointer; /* Add cursor pointer for indicating clickable area */
+    height: 82vh;
+    overflow-y: auto;
+  }
+  
+  .product-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    max-height:215px;
+  }
+  
+  .product-image {
+    width: 100%;
+    border-radius: 5px;
+  }
+  
+  .product-title {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .product-price {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #888;
+    float: left;
+  }
+  .product-quantity {
+    background-color: #007bff;
+    border-radius: 50%;
+    color: #fff;
+    float: right;
+    padding: 2px 5px;
+  }
+
+  

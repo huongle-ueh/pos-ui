@@ -34,7 +34,30 @@
       "options": {
         "targetName": "test"
       },
-      "exclude": ["apps/identity-service-e2e/**/*"]
+      "exclude": [
+        "apps/identity-service-e2e/**/*",
+        "apps/product-service-e2e/**/*",
+        "apps/customer-service-e2e/**/*",
+        "apps/order-service-e2e/**/*",
+        "apps/cart-service-e2e/**/*"
+      ]
     }
-  ]
+  ],
+  "generators": {
+    "@nx/react": {
+      "application": {
+        "babel": true,
+        "style": "css",
+        "linter": "eslint",
+        "bundler": "webpack"
+      },
+      "component": {
+        "style": "css"
+      },
+      "library": {
+        "style": "css",
+        "linter": "eslint"
+      }
+    }
+  }
 }

@@ -1,0 +1,32 @@
+/* Layout.css */
+body {
+  margin: 0;
+}
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #007bff;
+  padding: 2px 20px;
+  color: white;
+}
+
+.logo {
+  max-width: 200px;
+}
+
+.user-info {
+  font-size: 16px;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f0f0f0;
+}

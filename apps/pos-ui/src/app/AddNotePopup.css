@@ -1,0 +1,69 @@
+/* AddCustomerPopup.css */
+
+.add-customer-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 9000;
+  }
+  
+  .popup-content {
+    padding: 20px;
+  }
+  
+  .popup-content h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .input-field {
+    margin-bottom: 20px;
+  }
+  
+  .input-field label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .input-field input[type="text"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button-group button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .button-group button.primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .button-group button.secondary {
+    background-color: #ccc;
+    color: #fff;
+  }
+  .search-input{
+    width: 60%;
+    padding: 5px;
+    margin-right: 9px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }

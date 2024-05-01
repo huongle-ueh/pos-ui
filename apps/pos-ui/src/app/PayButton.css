@@ -1,0 +1,21 @@
+/* PayButton.css */
+
+.pay-button-container {
+    margin-top: auto;
+  }
+  
+  .pay-button {
+    background-color: #28a745; /* Green color */
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 20px;
+    cursor: pointer;
+    width: 100%; /* Fill the entire container */
+  }
+  
+  .pay-button:hover {
+    background-color: #218838; /* Darker shade of green on hover */
+  }
+  

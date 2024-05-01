@@ -1,0 +1,16 @@
+/* TaxLine.css */
+
+.tax-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .tax-text {
+    font-weight: bold;
+  }
+  
+  .tax-amount {
+    color: #dc3545; /* Red color for tax amount */
+  }
+  

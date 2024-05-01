@@ -1,0 +1,90 @@
+/* Cart.css */
+
+.cart {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    height: 48vh;
+    overflow-y: auto;
+  }
+
+  .cart h2 {
+    font-size: 1.5rem; /* Adjust font size as needed */
+    display: inline-flex; /* Ensure the text and icon are in the same line */
+    align-items: center; /* Align text and icon vertically */
+  }
+  
+  .cart-icon {
+    width: 1.5rem; /* Match width to font size */
+    height: 1.5rem; /* Match height to font size */
+    margin-left: 0.5rem; /* Add spacing between text and icon */
+    vertical-align: middle; /* Align icon vertically with text */
+  }
+
+  .cart-header {
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+  
+  .cart-items {
+    list-style-type: none;
+    padding: 0;
+    display: inline-block;
+    width: 100%;
+  }
+  
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .item-info {
+    flex: 1;
+  }
+  
+  .item-name {
+    font-weight: 700;
+    float: left;
+    width: 35%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .item-price {
+    margin-left: 20px;
+    margin-right: 20px;
+    float: left;
+    width: 8%;
+  }
+  
+  .item-total-price {
+    margin-left: 50px;
+    margin-right: 20px;
+    float: left;
+    width: 20%;
+  }
+  
+  .item-quantity {
+    width: 20px;
+    float: left;
+  }
+  
+  .remove-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .remove-button:hover {
+    background-color: #c82333;
+  }
+  
