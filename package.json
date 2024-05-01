@@ -2,7 +2,9 @@
   "name": "@pos-service/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx build pos-ui"
+  },
   "private": true,
   "dependencies": {
     "@nestjs/common": "^10.0.2",
