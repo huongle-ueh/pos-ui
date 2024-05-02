@@ -57,11 +57,11 @@ function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [token, setToken] = useState('');
-  // setToken('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyTmFtZSI6InRvbnkiLCJlbWFpbCI6ImFkbWluQHRvbnkuY29tIiwicGhvbmVOdW1iZXIiOiIwOTg3NjU0MzIxIiwiaWF0IjoxNzE0NjMwODkzLCJleHAiOjE3MTQ2MzQ0OTN9.jLmcV2-nFpebTjZAVuNwz-I3j3W1s_Yr5_z5wFesiGA');
+  
   const FetchProducts = async (token: string) => {
     setIsCallAPI(true);
     try {
-        const response = await axios.get('http://42.112.26.77:3003/products', {
+        const response = await axios.get('https://api.baocaocuoiky.info/product-service/products', {
             headers: {
                 'accept': '*/*',
                 'Authorization': `Bearer ${token}`
@@ -76,7 +76,7 @@ function App() {
   };
   const FetchCustomer = async (phone:string, token: string) => {
     try {
-        const response = await axios.get(`http://42.112.26.77:3005/customer?phoneNumber=${phone}`, {
+        const response = await axios.get(`https://api.baocaocuoiky.info/customer-service/customer?phoneNumber=${phone}`, {
             headers: {
                 'accept': '*/*',
                 'Authorization': `Bearer ${token}`
@@ -91,7 +91,7 @@ function App() {
   };
   const login = async (username:string, password:string) => {
     try {
-      const response = await axios.post('http://42.112.26.77:3004/users/login', {
+      const response = await axios.post('https://api.baocaocuoiky.info/user-service/users/login', {
         name: username,
         password: password
       }, {
