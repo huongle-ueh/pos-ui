@@ -1,14 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddCustomerPopup from './AddCustomerPopup';
 
-function AddCustomerButton() {
+function AddCustomerButton({ onSetCustomer, customerData }: { onSetCustomer: any, customerData:any }) {
   const [showPopup, setShowPopup] = useState(false);
-  const [customer, setCustomer] = useState<{ id: number; name: string; phone: string; } | null>(null);
+  const [customer, setCustomer] = useState<{
+    id: number;
+    name: string;
+    phone: string;
+  } | null>(null);
 
-  type Customer = { id: number; name: string; phone: string; };
+  useEffect(() => {
+    if(customerData){
+      setCustomer(customerData);
+    }
+  }, [customerData]);
 
   const handleAssignCustomer = (customer: Customer | null) => {
     setCustomer(customer);
+    onSetCustomer(customer);
   };
 
   const handleButtonClick = () => {
@@ -23,12 +32,19 @@ function AddCustomerButton() {
     <>
       {customer ? (
         <>
-          <button>Customer Name: {customer.name} - Phone: {customer.phone}</button>
+          <button>
+            Customer Name: {customer.name} - Phone: {customer.phone}
+          </button>
         </>
       ) : (
         <>
           <button onClick={handleButtonClick}>Add Customer</button>
-          {showPopup && <AddCustomerPopup onClose={handleClosePopup}  onAssignCustomer={handleAssignCustomer} />}
+          {showPopup && (
+            <AddCustomerPopup
+              onClose={handleClosePopup}
+              onAssignCustomer={handleAssignCustomer}
+            />
+          )}
         </>
       )}
     </>

@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AddNotePopup from './AddNotePopup';
 
-function NoteButton({ onAddNote }: { onAddNote: any }) {
+function NoteButton({
+  onAddNote,
+  cartNote,
+}: {
+  onAddNote: any;
+  cartNote: string;
+}) {
   const [showPopup, setShowPopup] = useState(false);
   const [note, setNote] = useState('');
+  useEffect(() => {
+    setNote(cartNote);
+  }, [cartNote]);
 
   const handleAddNote = (note: string | null) => {
     if (note) {
@@ -22,11 +31,12 @@ function NoteButton({ onAddNote }: { onAddNote: any }) {
 
   return (
     <>
-      <button onClick={handleButtonClick}>{note ? <>Note: {note}</> : 'Add Note'}</button>
+      <button onClick={handleButtonClick}>
+        {note ? <>Note: {note}</> : 'Add Note'}
+      </button>
       {showPopup && (
         <AddNotePopup onClose={handleClosePopup} onAddNote={handleAddNote} />
       )}
-      
     </>
   );
 }

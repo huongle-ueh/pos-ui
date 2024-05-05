@@ -20,21 +20,26 @@ type Props = {
   cartItems: Product[];
   removeFromCart: (productId: number) => void;
   updateQuantity: (index: number, value: number) => void;
+  onCustomerNote: (note: string) => void;
+  cartNote: string;
 };
 
-function Cart({ cartItems, removeFromCart, updateQuantity }: Props) {
+function Cart({
+  cartItems,
+  removeFromCart,
+  updateQuantity,
+  onCustomerNote,
+  cartNote,
+}: Props) {
   const [discountPercentage, setDiscountPercentage] = useState(0);
-  const [note, setNote] = useState('');
   const getSubTotalAmount = () => {
     return cartItems.reduce(
-      (total, item) =>
-        total +
-        item.price * item.quantity,
+      (total, item) => total + item.price * item.quantity,
       0
     );
   };
   const getDiscount = () => {
-    return getSubTotalAmount() * (discountPercentage / 100)
+    return getSubTotalAmount() * (discountPercentage / 100);
   };
 
   const getTotalAmount = () => {
@@ -50,10 +55,10 @@ function Cart({ cartItems, removeFromCart, updateQuantity }: Props) {
       setDiscountPercentage(coupon.value);
     }
   };
-  
+
   const handleAddNote = (note: string | null) => {
     if (note) {
-        setNote(note);
+      onCustomerNote(note);
     }
   };
 
@@ -99,9 +104,13 @@ function Cart({ cartItems, removeFromCart, updateQuantity }: Props) {
       </div>
       <div className="additional-actions">
         <AddCouponButton onApplyCoupon={handleApplyCoupon} />
-        <NoteButton onAddNote={handleAddNote} />
+        <NoteButton onAddNote={handleAddNote} cartNote={cartNote} />
       </div>
-      <TaxLine subtotal={getSubTotalAmount()} discount={getDiscount()} discountPercent={discountPercentage} />
+      <TaxLine
+        subtotal={getSubTotalAmount()}
+        discount={getDiscount()}
+        discountPercent={discountPercentage}
+      />
       <PaymentMethod />
       <PayButton totalAmount={getTotalAmount()} />
     </>
