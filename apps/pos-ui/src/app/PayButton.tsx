@@ -14,8 +14,8 @@ function PayButton({ totalAmount }: { totalAmount: number }) {
       paymentMethod: 'cash',
     })
       .then((order) => {
-        alert(`Payment of $${totalAmount} successful! Your order number is ${order.id}`);
-        console.log(order);
+        alert(`Payment of $${totalAmount} successful! Your order number is ${order.data.data.identifiers[0].id}`);
+        console.log('Order created:', order);
         // Clear cart
         localStorage.removeItem('cartId');
         localStorage.removeItem('customerId');
