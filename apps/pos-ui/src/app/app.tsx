@@ -68,7 +68,6 @@ function App() {
 
   if (isCallAPI == false) {
     FetchProducts().then((products) => {
-      console.log('products:', products);
       setIsCallAPI(true);
       setOriginProducts(products.data.items);
     });
@@ -182,8 +181,6 @@ function App() {
 
   const handleLogin = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log('username:', username);
-    console.log('password:', password);
     loginUser({
       name: username,
       password: password,

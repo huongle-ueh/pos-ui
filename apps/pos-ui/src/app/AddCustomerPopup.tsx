@@ -43,6 +43,10 @@ function AddCustomerPopup({
     setIsSearchClicked(true);
     FetchCustomer(searchTerm.toLowerCase())
       .then((response) => {
+        if (!response.data) {
+          console.log('No customer found');
+          return;
+        }
         console.log('Customer found:', response.data);
         const newCustomerData = {
           id: response.data.id,
@@ -57,9 +61,6 @@ function AddCustomerPopup({
   };
 
   const handleSubmit = () => {
-    // Logic to handle form submission for adding a new customer
-    // For now, we just log the new customer data
-    console.log('New customer data:', newCustomerData);
     const newInsertCustomerData = {
       name: newCustomerData.name,
       phoneNumber: newCustomerData.phone,
@@ -68,15 +69,17 @@ function AddCustomerPopup({
     addCustomer(newInsertCustomerData)
       .then((response) => {
         console.log('Customer added successfully:', response.data);
-        setNewCustomerData({
+        const insertCustomer = {
           ...newCustomerData,
-          id: response.data.data.identifiers[0].id,
-        });
+          id: response.data.identifiers[0].id,
+        };
+        setNewCustomerData(insertCustomer);
+        setCustomer(insertCustomer);
+        onAssignCustomer(insertCustomer);
       })
       .catch((error) => {
         console.error('Error adding customer:', error);
       });
-    onAssignCustomer(newCustomerData);
   };
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
